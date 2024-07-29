@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .texto-dinamico {
+            /* Cambia la dirección del texto verticalmente */
+            writing-mode: vertical-rl;
+            direction: ltr;
+            /* Asegura que el texto se lea de abajo hacia arriba */
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            color: #333;
+            /* Color por defecto */
+            white-space: nowrap;
+            /* Evita el salto de línea dentro del contenedor */
+            height: 200px;
+            /* Ajusta la altura según necesites */
+            border: 1px solid #ccc;
+            /* Opcional: para ver el contenedor del texto */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="texto-dinamico" class="texto-dinamico">
+        Texto
+    </div>
+
+    <script>
+        // Función para obtener los parámetros de la URL
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                texto: params.get('texto'),
+                color: params.get('color'),
+                tamano: params.get('tamano')
+            };
+        }
+
+        // Obtener parámetros de la URL
+        const params = getQueryParams();
+
+        // Obtener el elemento de texto
+        const textoElemento = document.getElementById('texto-dinamico');
+
+        // Aplicar los parámetros al texto
+        if (params.texto) {
+            textoElemento.textContent = params.texto;
+        }
+        if (params.color) {
+            textoElemento.style.color = params.color;
+        }
+        if (params.tamano) {
+            textoElemento.style.fontSize = params.tamano;
+        }
+    </script>
+</body>
+
+</html>
