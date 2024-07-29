@@ -37,7 +37,8 @@
                 texto: params.get('texto'),
                 color: params.get('color'),
                 tamano: params.get('tamano'),
-                fondo: params.get('fondo')
+                fondo: params.get('fondo'),
+                margenIzquierdo: params.get('margenIzquierdo')
             };
         }
 
@@ -53,6 +54,12 @@
         }
         if (params.tamano) {
             textoElemento.style.fontSize = params.tamano;
+        }
+        if (params.fondo) {
+            textoElemento.style.backgroundColor = params.fondo;
+        }
+        if (params.margenIzquierdo) {
+            textoElemento.style.marginLeft = params.margenIzquierdo;
         }
     </script>
 </body>
