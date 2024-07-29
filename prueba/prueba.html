@@ -20,6 +20,12 @@
             font-size: 50px;
             font-family: monospace;
             transform: rotate(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* También centrado horizontalmente si es necesario */
+            height: 100%;
+            /* Para que el contenedor expanda a todo el contenedor padre */
         }
     </style>
 </head>
@@ -38,14 +44,17 @@
                 color: params.get('color'),
                 tamano: params.get('tamano'),
                 fondo: params.get('fondo'),
-                margenIzquierdo: params.get('margenIzquierdo')
+                margenIzquierdo: params.get('margenIzquierdo') // Nuevo parámetro para margin-left
             };
         }
 
+        // Obtener parámetros de la URL
         const params = getQueryParams();
 
+        // Obtener el elemento de texto
         const textoElemento = document.getElementById('texto-dinamico');
 
+        // Aplicar los parámetros al texto
         if (params.texto) {
             textoElemento.textContent = params.texto;
         }
