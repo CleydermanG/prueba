@@ -7,6 +7,12 @@
     <style>
         body {
             background-color: #444;
+            margin: 0;
+            height: 100vh;
+            /* Asegura que el body ocupe toda la altura de la ventana */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         .texto-dinamico {
@@ -23,9 +29,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            /* También centrado horizontalmente si es necesario */
-            height: 100%;
-            /* Para que el contenedor expanda a todo el contenedor padre */
+            background-color: inherit;
+            /* Por defecto, hereda el color de fondo del body */
         }
     </style>
 </head>
