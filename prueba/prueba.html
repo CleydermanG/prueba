@@ -9,7 +9,6 @@
             background-color: #444;
             margin: 0;
             height: 100vh;
-            /* Asegura que el body ocupe toda la altura de la ventana */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -30,7 +29,13 @@
             align-items: center;
             justify-content: center;
             background-color: inherit;
-            /* Por defecto, hereda el color de fondo del body */
+        }
+        
+        @media (max-width: 768px) {
+            .texto-dinamico {
+                writing-mode: horizontal-tb;
+                transform: rotate(0deg);
+            }
         }
     </style>
 </head>
@@ -41,7 +46,6 @@
     </div>
 
     <script>
-        // Función para obtener los parámetros de la URL
         function getQueryParams() {
             const params = new URLSearchParams(window.location.search);
             return {
@@ -49,14 +53,12 @@
                 color: params.get('color'),
                 tamano: params.get('tamano'),
                 fondo: params.get('fondo'),
-                margenIzquierdo: params.get('margenIzquierdo') // Nuevo parámetro para margin-left
+                margenIzquierdo: params.get('margenIzquierdo')
             };
         }
 
-        // Obtener parámetros de la URL
         const params = getQueryParams();
 
-        // Obtener el elemento de texto
         const textoElemento = document.getElementById('texto-dinamico');
 
         // Aplicar los parámetros al texto
