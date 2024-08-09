@@ -39,7 +39,6 @@
             return {
                 texto: params.get('texto'),
                 color: params.get('color'),
-                tamano: params.get('tamano'),
                 fondo: params.get('fondo'),
                 margenIzquierdo: params.get('margenIzquierdo')
             };
@@ -64,8 +63,8 @@
         }
 
         function ajustarOrientacion() {
-            const width = textoElemento.offsetWidth;
-            if (width <= 100) {
+            const screenWidth = window.innerWidth;
+            if (screenWidth < 360) {
                 textoElemento.style.writingMode = 'vertical-rl';
                 textoElemento.style.transform = 'rotate(180deg)';
             } else {
