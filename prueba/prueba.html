@@ -15,27 +15,22 @@
         }
         
         .texto-dinamico {
-            writing-mode: vertical-rl;
-            direction: ltr;
             text-align: center;
             margin: 0;
-            padding: 10px;
             color: #fffcfc;
-            white-space: nowrap;
-            font-size: 50px;
             font-family: monospace;
-            transform: rotate(180deg);
             display: flex;
             align-items: center;
             justify-content: center;
             background-color: inherit;
+            font-size: 20px;
         }
     </style>
 </head>
 
 <body>
     <div id="texto-dinamico" class="texto-dinamico">
-        Texto
+        TEXT
     </div>
 
     <script>
@@ -61,15 +56,27 @@
         if (params.color) {
             textoElemento.style.color = params.color;
         }
-        if (params.tamano) {
-            textoElemento.style.fontSize = params.tamano;
-        }
         if (params.fondo) {
             textoElemento.style.backgroundColor = params.fondo;
         }
         if (params.margenIzquierdo) {
             textoElemento.style.marginLeft = params.margenIzquierdo;
         }
+
+        function ajustarOrientacion() {
+            const width = textoElemento.offsetWidth;
+            console.log(width)
+            if (width <= 100) {
+                textoElemento.style.writingMode = 'vertical-rl';
+                textoElemento.style.transform = 'rotate(180deg)';
+            } else {
+                textoElemento.style.writingMode = 'horizontal-tb';
+                textoElemento.style.transform = 'none';
+            }
+        }
+
+        ajustarOrientacion();
+        window.addEventListener('resize', ajustarOrientacion);
     </script>
 </body>
 
