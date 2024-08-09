@@ -24,13 +24,11 @@
             white-space: nowrap;
             font-size: 50px;
             font-family: monospace;
+            transform: rotate(180deg);
             display: flex;
             align-items: center;
             justify-content: center;
             background-color: inherit;
-            transition: all 0.3s ease;
-            height: 100%;
-            /* Centrar verticalmente */
         }
     </style>
 </head>
@@ -72,22 +70,6 @@
         if (params.margenIzquierdo) {
             textoElemento.style.marginLeft = params.margenIzquierdo;
         }
-
-        function ajustarOrientacion() {
-            const width = textoElemento.offsetWidth;
-
-            if (width <= 80) {
-                textoElemento.style.writingMode = 'horizontal-tb';
-                textoElemento.style.transform = 'none';
-            } else {
-                textoElemento.style.writingMode = 'vertical-rl';
-                textoElemento.style.transform = 'rotate(180deg)';
-            }
-        }
-
-        // Llamar la función inicialmente y cuando la ventana cambia de tamaño
-        ajustarOrientacion();
-        window.addEventListener('resize', ajustarOrientacion);
     </script>
 </body>
 
